@@ -1,10 +1,10 @@
 {
-  "name": "@rcanalytics/angular-google-maps",
+  "name": "angular-google-maps",
   "version": "2.4.1",
   "description": "AngularJS directives for Google Maps",
   "repository": {
     "type": "git",
-    "url": "https://github.com/angular-ui/angular-google-maps.git"
+    "url": "https://github.com/rcanalytics/angular-google-maps.git"
   },
   "scripts": {
     "build": "grunt",
@@ -20,7 +20,7 @@
     "directives",
     "webcomponent"
   ],
-  "main": "dist/@rcanalytics/angular-google-maps.js",
+  "main": "dist/angular-google-maps.js",
   "files": [
     "dist/*",
     "spec/coffee/helpers/google-api-mock.coffee",
@@ -43,7 +43,6 @@
     "grunt-bump": "0.3.1",
     "grunt-cli": "~0.1.13",
     "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-coffee": "git://github.com/nmccready/grunt-contrib-coffee#3d47cf8e539a0a7a537e6725c78c8c61b6b170eb",
     "grunt-contrib-compress": "~0.13.0",
     "grunt-contrib-concat": "~0.5.1",
     "grunt-contrib-connect": "~0.10.1",
@@ -88,6 +87,7 @@
     "google-maps-utility-library-v3-infobox": "1.1.14",
     "google-maps-utility-library-v3-keydragzoom": "2.0.9",
     "google-maps-utility-library-v3-markerwithlabel": "git://github.com/nmccready/google-maps-utility-library-v3-markerwithlabel.git",
+    "grunt-contrib-coffee": "^2.1.0",
     "js-rich-marker": "git://github.com/MikaFima/js-rich-marker.git#0383f4bbdad4ddf154772fedbdd27e464600e943",
     "lodash": "3.X - 4.X",
     "markerclustererplus": "2.1.4"
