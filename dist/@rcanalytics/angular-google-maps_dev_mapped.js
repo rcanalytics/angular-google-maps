@@ -1,4 +1,4 @@
-/*! angular-google-maps 2.4.1 2017-01-05
+/*! @rcanalytics/angular-google-maps 2.4.1 2017-07-20
  *  AngularJS directives for Google Maps
  *  git: https://github.com/angular-ui/angular-google-maps.git
  */
@@ -2153,7 +2153,7 @@ Nicholas McCready - https://twitter.com/nmccready
 }).call(this);
 ;(function() {
   angular.module('uiGmapgoogle-maps.directives.api.managers').service('uiGmapGoogleMapObjectManager', [
-    function() {
+    '$rootScope', function($rootScope) {
       var _availableInstances, _usedInstances;
       _availableInstances = [];
       _usedInstances = [];
@@ -2164,6 +2164,7 @@ Nicholas McCready - https://twitter.com/nmccready
           if (_availableInstances.length === 0) {
             instance = new google.maps.Map(parentElement, options);
             _usedInstances.push(instance);
+            $rootScope.$emit('uiGmapgoogle-maps.map-instantiated');
           } else {
             instance = _availableInstances.pop();
             angular.element(parentElement).append(instance.getDiv());
@@ -6813,6 +6814,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
               _gMap = uiGmapGoogleMapObjectManager.createMapInstance(el.find('div')[1], mapOptions);
             } else {
               _gMap = new google.maps.Map(el.find('div')[1], mapOptions);
+              scope.$emit('uiGmapgoogle-maps.map-instantiated');
             }
             _gMap['uiGmap_id'] = uiGmapuuid.generate();
             dragging = false;
@@ -11464,7 +11466,7 @@ window['RichMarkerPosition'] = RichMarkerPosition;
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* istanbul ignore next */
 	angular.module('uiGmapgoogle-maps.wrapped')
@@ -11476,9 +11478,9 @@ window['RichMarkerPosition'] = RichMarkerPosition;
 	});
 
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	(function() {
 	  module.exports = {
@@ -11494,9 +11496,9 @@ window['RichMarkerPosition'] = RichMarkerPosition;
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/*
 	Graph implemented as a modified incidence list. O(1) for every typical
@@ -11788,9 +11790,9 @@ window['RichMarkerPosition'] = RichMarkerPosition;
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/*
 	Minimum heap, i.e. smallest node at root.
@@ -11935,9 +11937,9 @@ window['RichMarkerPosition'] = RichMarkerPosition;
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/*
 	Doubly Linked.
@@ -12212,9 +12214,9 @@ window['RichMarkerPosition'] = RichMarkerPosition;
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/*
 	Kind of a stopgap measure for the upcoming [JavaScript
@@ -12403,9 +12405,9 @@ window['RichMarkerPosition'] = RichMarkerPosition;
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/*
 	Amortized O(1) dequeue!
@@ -12495,9 +12497,9 @@ window['RichMarkerPosition'] = RichMarkerPosition;
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/*
 	Credit to Wikipedia's article on [Red-black
@@ -12958,9 +12960,9 @@ window['RichMarkerPosition'] = RichMarkerPosition;
 	}).call(this);
 
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 	Good for fast insertion/removal/lookup of strings.
@@ -13211,7 +13213,7 @@ window['RichMarkerPosition'] = RichMarkerPosition;
 	}).call(this);
 
 
-/***/ }
+/***/ })
 /******/ ]);;angular.module('uiGmapgoogle-maps.wrapped')
 .service('uiGmapMarkerSpiderfier', [ 'uiGmapGoogleMapApi', function(GoogleMapApi) {
   var self = this;
@@ -14174,3 +14176,4 @@ angular.module('uiGmapgoogle-maps.extensions')
   };
 }]);
 }( window, angular, _));
+//# sourceMappingURL=angular-google-maps_dev_mapped.js.map
