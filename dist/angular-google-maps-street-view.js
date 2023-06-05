@@ -157,8 +157,7 @@ return UUID;
     this.options = {
       transport: 'https',
       isGoogleMapsForWork: false,
-      china: false,
-      v: '3',
+      v: 'quarterly',
       libraries: '',
       language: 'en',
       preventLoad: false
