@@ -5,18 +5,14 @@ angular.module('uiGmapgoogle-maps.providers')
       usedConfiguration = undefined
 
       getScriptUrl = (options) ->
-        #china doesn't allow https and has a special url
-        if options.china
-          'http://maps.google.cn/maps/api/js?'
+        #auto will just use protocol-less api code so will automatically use https if used on https website, and http if used on http website
+        if options.transport == 'auto'
+          '//maps.googleapis.com/maps/api/js?'
         else
-          #auto will just use protocol-less api code so will automatically use https if used on https website, and http if used on http website
-          if options.transport == 'auto'
-            '//maps.googleapis.com/maps/api/js?'
-          else
-            options.transport + '://maps.googleapis.com/maps/api/js?'
+          options.transport + '://maps.googleapis.com/maps/api/js?'
 
       includeScript = (options) ->
-        omitOptions = ['transport', 'isGoogleMapsForWork', 'china', 'preventLoad']
+        omitOptions = ['transport', 'isGoogleMapsForWork', 'preventLoad']
         # 'Google Maps API for Work developers must not include a key in their requests.' so remove from url params
         if options.isGoogleMapsForWork
           omitOptions.push('key')
@@ -30,7 +26,7 @@ angular.module('uiGmapgoogle-maps.providers')
 
         query = query.join '&'
         script = document.createElement 'script'
-        script.id = scriptId = "ui_gmap_map_load_#{uuid.generate()}"
+        script.id = scriptId = "google-map-script"
         script.type = 'text/javascript'
         script.src = getScriptUrl(options) + query
         document.head.appendChild script
@@ -86,11 +82,10 @@ angular.module('uiGmapgoogle-maps.providers')
   #    client: 'gme-googleMapsForWorkClientId here'
     transport: 'https'
     isGoogleMapsForWork: false
-    china: false
     # https://developers.google.com/maps/documentation/javascript/basics#Versioning
     # This should be a release version.
     # If it is not the version you want.. override it or then complain to google.
-    v: '3' #NOTICE THIS CAN BE OVERRIDEN, That is why this is a provider!!!!!!!!!
+    v: 'quarterly' #NOTICE THIS CAN BE OVERRIDEN, That is why this is a provider!!!!!!!!!
     libraries: ''
     language: 'en'
     preventLoad: false
