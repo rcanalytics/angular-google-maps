@@ -86,9 +86,9 @@
     "angular-simple-logger": ">=0.0.1",
     "google-maps-utility-library-v3-infobox": "1.1.14",
     "google-maps-utility-library-v3-keydragzoom": "2.0.9",
-    "google-maps-utility-library-v3-markerwithlabel": "git://github.com/nmccready/google-maps-utility-library-v3-markerwithlabel.git",
+    "google-maps-utility-library-v3-markerwithlabel": "git+https://github.com/nmccready/google-maps-utility-library-v3-markerwithlabel.git",
     "grunt-contrib-coffee": "^2.1.0",
-    "js-rich-marker": "git://github.com/MikaFima/js-rich-marker.git#0383f4bbdad4ddf154772fedbdd27e464600e943",
+    "js-rich-marker": "git+https://github.com/MikaFima/js-rich-marker.git#0383f4bbdad4ddf154772fedbdd27e464600e943",
     "lodash": "^3.9.3",
     "markerclustererplus": "2.1.4"
   }
