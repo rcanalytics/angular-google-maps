@@ -109,7 +109,7 @@ Nicholas McCready - https://twitter.com/nmccready
             deferred.resolve(window.google.maps);
             return deferred.promise;
           }
-          randomizedFunctionName = options.callback = 'onGoogleMapsReady' + Math.round(Math.random() * 1000);
+          randomizedFunctionName = options.callback = 'initMap';
           window[randomizedFunctionName] = function() {
             window[randomizedFunctionName] = null;
             deferred.resolve(window.google.maps);
