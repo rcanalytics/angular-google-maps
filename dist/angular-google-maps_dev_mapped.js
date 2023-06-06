@@ -93,7 +93,7 @@ Nicholas McCready - https://twitter.com/nmccready
         }
         query = query.join('&');
         script = document.createElement('script');
-        script.id = scriptId = "ui_gmap_map_load_" + (uuid.generate());
+        script.id = scriptId = "google-map-script";
         script.type = 'text/javascript';
         script.src = getScriptUrl(options) + query;
         return document.head.appendChild(script);
